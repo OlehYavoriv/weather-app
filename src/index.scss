@@ -1,3 +1,5 @@
+@import "styles/index";
+
 *,
 *::before,
 *::after {
@@ -5,6 +7,7 @@
   padding: 0;
   box-sizing: inherit;
   font-family: "Rubik Normal", sans-serif;
+  color: $mountain-mist-color;
 }
 
 html,
@@ -12,8 +15,15 @@ body,
 #root {
   width: 100%;
   height: 100%;
+  background-color: $black-pearl-color;
 }
 
 a {
   text-decoration: none;
+}
+
+.section {
+  max-width: 1920px;
+  padding: 0 15px;
+  margin: 0 auto;
 }

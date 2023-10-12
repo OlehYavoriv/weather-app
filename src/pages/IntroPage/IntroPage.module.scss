@@ -1,0 +1,72 @@
+@import "../../styles/index";
+
+.container {
+  @include set-size(100%, 70%);
+  display: flex;
+  position: absolute;
+  max-width: 992px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .overlay {
+    @include set-size(50%, 100%);
+    @include flex(row, center, center);
+    background-color: $ebony-clay-color;
+    border-radius: 24px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .banner {
+    @include set-size(50%, 100%);
+    @include flex(column, center, center);
+
+    img {
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      @include font($font-size-largeTitle, normal, $seashell-color, 600);
+      margin-bottom: 10px;
+    }
+
+    &__subtitle {
+      @include font($font-size-large, normal, $mountain-mist-color, 400);
+    }
+
+    &__btn {
+      @include font($font-size-medium, normal, $white-color, 400);
+      border-radius: 25px;
+      padding: 15px 40px;
+      background-color: $butterfly-blue-color;
+      margin: 45px auto;
+      transition: all 0.5s ease 0s;
+      animation-duration: 1.5s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, md)) {
+  .container {
+    .overlay {
+      display: none;
+    }
+
+    .banner {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, lg)) {
+  .container {
+    max-width: 768px;
+  }
+}
