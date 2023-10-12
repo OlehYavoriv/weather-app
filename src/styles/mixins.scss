@@ -8,6 +8,17 @@
   width: $width;
 }
 
+@mixin font($font-size, $line-height, $color: null, $font-weight: null) {
+  @if $color {
+    color: $color;
+  }
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
 @mixin flex($direction: row, $content: flex-start, $items: stretch) {
   display: flex;
   flex-direction: $direction;
