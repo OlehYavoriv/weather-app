@@ -1,12 +1,24 @@
-import {FC} from 'react';
+import { FC, useState } from 'react';
 import {IUser} from "../../utils/interfaces";
 import styles from './UserCard.module.scss';
+import { Modal } from "../Modal";
+import { WeatherCard } from "../WeatherCard";
 
 interface UserCardProps {
     user: IUser;
 }
 
 export const UserCard: FC<UserCardProps> = ({user}) => {
+    const [isWeatherModalOpen, setIsWeatherModalOpen] = useState(false);
+
+    const openWeatherModal = () => {
+        setIsWeatherModalOpen(true);
+    };
+
+    const closeWeatherModal = () => {
+        setIsWeatherModalOpen(false);
+    };
+
     return (
         <div className={styles.user_card}>
             <img className={styles.user_card__avatar} src={user.picture.large} alt='Avatar'/>
@@ -20,8 +32,13 @@ export const UserCard: FC<UserCardProps> = ({user}) => {
             </ul>
             <div className={styles.user_card__btns}>
                 <button className={styles.save_btn}>Save</button>
-                <button className={styles.modal_btn}>Weather</button>
+                <button className={styles.modal_btn} onClick={openWeatherModal}>Weather</button>
             </div>
+            {isWeatherModalOpen && (
+                <Modal onClose={closeWeatherModal}>
+                    <WeatherCard user={user}/>
+                </Modal>
+            )}
         </div>
     );
 };
