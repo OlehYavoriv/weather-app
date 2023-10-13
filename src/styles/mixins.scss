@@ -8,6 +8,20 @@
   width: $width;
 }
 
+@mixin custom_btn($font-size, $font-weight, $text-color, $background-color, $margin, $padding) {
+  @include font($font-size, $font-weight, $text-color, 400);
+  border-radius: 25px;
+  padding: $padding;
+  background-color: $background-color;
+  margin: $margin;
+  transition: all 0.5s ease 0s;
+  animation-duration: 1.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 @mixin font($font-size, $line-height, $color: null, $font-weight: null) {
   @if $color {
     color: $color;

@@ -1,0 +1,5 @@
+@import "../../styles/index";
+
+.spinner {
+  @include flex($content: center, $items: center);
+}
