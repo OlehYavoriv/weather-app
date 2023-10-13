@@ -20,6 +20,17 @@ body,
 
 a {
   text-decoration: none;
+  cursor: pointer;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .section {

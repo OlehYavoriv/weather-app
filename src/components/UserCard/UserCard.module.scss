@@ -1,0 +1,47 @@
+@import "../../styles/index";
+
+.user_card {
+  @include flex($direction: column);
+  padding: 20px 10px;
+  width: 50%;
+
+  &__avatar {
+    @include set-size(70px, 70px);
+    object-fit: cover;
+    margin: 0 auto 10px auto;
+    border-radius: 100%;
+    border: 2px solid $butterfly-blue-color;
+  }
+
+  &__data {
+    li {
+      margin-bottom: 5px;
+
+      span {
+        @include font($font-size-medium, normal, $mountain-mist-color, 600);
+      }
+    }
+  }
+
+  &__btns {
+    @include flex(row, space-around, center);
+
+    .save_btn,
+    .modal_btn {
+      @include custom_btn($font-size-medium, normal, $white-color, $butterfly-blue-color, 15px auto, 5px 25px);
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, md)) {
+  .user_card {
+    width: 95% !important;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: map-get($breakpoints, lg)) {
+  .user_card {
+    width: 35%;
+  }
+}

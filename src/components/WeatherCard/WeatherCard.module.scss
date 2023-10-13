@@ -1,0 +1,101 @@
+@import "../../styles/index";
+
+.weather_card {
+  @include flex($direction: column);
+  padding: 20px 10px;
+  width: 50%;
+
+  .current_weather {
+    @include flex($direction: row, $content: space-between);
+
+    &__title {
+      @include font($font-size-large, normal, $seashell-color, 600);
+      margin-bottom: 20px;
+    }
+
+    &__temp {
+      @include font($font-size-largeTitle, normal, $seashell-color, 600)
+    }
+  }
+
+  .temperature_value {
+    margin-bottom: 15px;
+
+    &__min,
+    &__max {
+      @include font($font-size-medium, normal, $seashell-color, 600);
+      @include flex($direction: row, $items: center);
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    &__min {
+      svg {
+        fill: $azure-color;
+      }
+    }
+
+    &__max {
+      svg {
+        fill: $rosso-corsa-color;
+      }
+    }
+  }
+
+  .forecast {
+    @include flex(row, space-between);
+    flex-wrap: wrap;
+
+    &__item {
+      @include set-size(60px, 60px);
+      @include flex(column, space-between, center);
+      border: 1px solid $seashell-color;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm)) {
+  .weather_card {
+    .current_weather,
+    .temperature_value {
+      padding: 0 5px;
+    }
+
+    .current_weather {
+      img {
+        @include set-size(100px, 100px);
+      }
+
+      &__title {
+        @include font($font-size, normal, $seashell-color, 600);
+      }
+
+      &__temp {
+        @include font($font-size-large, normal, $seashell-color, 600)
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, md)) {
+  .weather_card {
+    width: 100% !important;
+    padding: 0;
+
+    .current_weather,
+    .temperature_value {
+      padding: 0 15px;
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, lg)) {
+  .weather_card {
+    width: 65%;
+  }
+}
