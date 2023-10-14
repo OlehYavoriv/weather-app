@@ -3,6 +3,7 @@ import { IUser } from '../../utils/interfaces';
 import { UserCard } from "../../components/UserCard";
 import { WeatherCard } from "../../components/WeatherCard";
 import styles from './BookmarkPage.module.scss';
+import { Header } from "../../components/Header";
 
 interface UserInfo {
     user: IUser;
@@ -17,15 +18,18 @@ export const BookmarkPage = () => {
     }, []);
 
     return (
-        <section className='section'>
-            <div className={styles.card}>
-                {userInfo.map((data, index) => (
-                    <div key={index} className={styles.card__item}>
-                        <UserCard user={data.user} showButton={false}/>
-                        <WeatherCard user={data.user}/>
-                    </div>
-                ))}
-            </div>
-        </section>
+        <>
+            <Header/>
+            <section className='section'>
+                <div className={styles.card}>
+                    {userInfo.map((data, index) => (
+                        <div key={index} className={styles.card__item}>
+                            <UserCard user={data.user} showButton={false}/>
+                            <WeatherCard user={data.user}/>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </>
     );
 };
