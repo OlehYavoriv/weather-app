@@ -1,0 +1,25 @@
+@import "../../styles/index";
+
+.card {
+  @include flex($direction: column);
+  row-gap: 30px;
+
+  &__item {
+    @include flex(row, space-between);
+    width: 100%;
+    background-color: $ebony-clay-color;
+    border-radius: 20px;
+  }
+
+  .loadMore_btn {
+    @include custom_btn($font-size-medium, normal, $white-color, $butterfly-blue-color, 45px auto, 15px 40px);
+  }
+}
+
+@media (max-width: map-get($breakpoints, md)) {
+  .card {
+    &__item {
+      flex-direction: column;
+    }
+  }
+}

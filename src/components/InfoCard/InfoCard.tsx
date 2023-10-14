@@ -28,7 +28,7 @@ export const InfoCard = () => {
         <div className={styles.card}>
             {userInfo.map((user: IUser, index: number) => (
                 <div key={index} className={styles.card__item}>
-                    <UserCard user={user}/>
+                    <UserCard user={user} isSaved={false} showButton={true}/>
                     <WeatherCard user={user}/>
                 </div>
             ))}
