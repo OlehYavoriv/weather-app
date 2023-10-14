@@ -1,10 +1,13 @@
-import React from 'react';
 import { InfoCard } from "../../components/InfoCard";
+import { Header } from "../../components/Header";
 
 export const WeatherPage = () => {
     return (
-        <section className='section'>
-            <InfoCard/>
-        </section>
+        <>
+            <Header/>
+            <section className='section'>
+                <InfoCard/>
+            </section>
+        </>
     );
 };
